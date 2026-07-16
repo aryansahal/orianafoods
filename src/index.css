@@ -27,6 +27,11 @@ a {
   text-decoration: none;
 }
 
+img,
+iframe {
+  max-width: 100%;
+}
+
 /* ---------- Keyframes ---------- */
 @keyframes om-floatIn {
   from {
@@ -79,13 +84,38 @@ a {
   text-transform: uppercase;
 }
 
-/* ---------- Links ---------- */
+/* ---------- Navbar ---------- */
+.om-nav-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 14px 32px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+}
 .om-nav-link {
   color: #2b2318;
   transition: color 0.2s ease;
 }
 .om-nav-link:hover {
   color: #f58220;
+}
+.om-nav-burger {
+  display: none;
+  background: none;
+  border: none;
+  padding: 6px 10px;
+  font-size: 26px;
+  line-height: 1;
+  color: #1e3a14;
+  cursor: pointer;
+}
+.om-nav-mobile {
+  display: none;
+}
+.om-nav-logo {
+  height: 44px;
 }
 
 .om-cta-pill {
@@ -267,14 +297,89 @@ a {
   .om-products-grid {
     grid-template-columns: repeat(2, 1fr);
   }
-  .om-nav-links-text {
+  .om-nav-desktop {
     display: none !important;
+  }
+  .om-nav-burger {
+    display: block;
+  }
+  .om-nav-mobile {
+    display: flex;
+    flex-direction: column;
+    padding: 4px 24px 18px;
+    border-top: 1px solid rgba(43, 35, 24, 0.08);
+    font-size: 16px;
+    font-weight: 500;
+  }
+  .om-nav-mobile a {
+    padding: 12px 0;
+  }
+  .om-nav-mobile-cta {
+    margin-top: 10px;
+    background: #f58220;
+    color: #fff !important;
+    border-radius: 999px;
+    font-weight: 600;
+    text-align: center;
+    padding: 13px 0 !important;
+    box-shadow: 0 3px 12px rgba(245, 130, 32, 0.35);
+  }
+}
+
+@media (max-width: 700px) {
+  .om-nav-inner {
+    padding: 10px 20px;
+  }
+  .om-nav-logo {
+    height: 36px;
+  }
+  .om-hero-grid {
+    padding: 44px 20px 52px !important;
+    gap: 36px;
+  }
+  .om-hero-grid h1 {
+    font-size: 38px !important;
+  }
+  .om-hero-grid p {
+    font-size: 16.5px !important;
+  }
+  .om-btn-primary,
+  .om-btn-outline {
+    padding: 14px 26px !important;
+    font-size: 15px !important;
+  }
+  .om-trust-grid {
+    padding: 16px 20px !important;
+    gap: 18px;
+  }
+  #products {
+    padding: 60px 20px 52px !important;
+  }
+  .om-origin-grid {
+    padding: 60px 20px !important;
+  }
+  .om-origin-photo {
+    height: 260px !important;
+  }
+  #wholesale {
+    padding: 60px 20px !important;
+  }
+  .om-contact-grid {
+    padding: 60px 20px !important;
+    gap: 40px;
+  }
+  .om-form-card {
+    padding: 30px 22px !important;
+  }
+  .om-ticker-track {
+    font-size: 13px;
   }
 }
 
 @media (max-width: 560px) {
   .om-trust-grid {
     grid-template-columns: repeat(2, 1fr);
+    text-align: left;
   }
   .om-products-grid {
     grid-template-columns: 1fr;

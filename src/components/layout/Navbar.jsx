@@ -1,7 +1,16 @@
-import React from "react";
+import React, { useState } from "react";
 import wordLogo from "../../assets/images/wordLogo-oriana.png";
 
+const links = [
+  { href: "#products", label: "Our Masalas" },
+  { href: "#origin", label: "Origin" },
+  { href: "#wholesale", label: "Wholesale" },
+];
+
 const Navbar = () => {
+  const [open, setOpen] = useState(false);
+  const close = () => setOpen(false);
+
   return (
     <header
       style={{
@@ -14,25 +23,17 @@ const Navbar = () => {
         borderBottom: "1px solid rgba(43,35,24,0.08)",
       }}
     >
-      <div
-        style={{
-          maxWidth: 1200,
-          margin: "0 auto",
-          padding: "14px 32px",
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "space-between",
-          gap: 24,
-        }}
-      >
-        <a href="#top">
+      <div className="om-nav-inner">
+        <a href="#top" onClick={close}>
           <img
             src={wordLogo}
             alt="Oriana Foods — Originates at the Origin"
-            style={{ height: 44, display: "block" }}
+            className="om-nav-logo"
+            style={{ display: "block" }}
           />
         </a>
         <nav
+          className="om-nav-desktop"
           style={{
             display: "flex",
             alignItems: "center",
@@ -41,15 +42,11 @@ const Navbar = () => {
             fontWeight: 500,
           }}
         >
-          <a href="#products" className="om-nav-link om-nav-links-text">
-            Our Masalas
-          </a>
-          <a href="#origin" className="om-nav-link om-nav-links-text">
-            Origin
-          </a>
-          <a href="#wholesale" className="om-nav-link om-nav-links-text">
-            Wholesale
-          </a>
+          {links.map((l) => (
+            <a key={l.href} href={l.href} className="om-nav-link">
+              {l.label}
+            </a>
+          ))}
           <a
             href="#contact"
             className="om-cta-pill"
@@ -65,7 +62,28 @@ const Navbar = () => {
             Request a Quote
           </a>
         </nav>
+        <button
+          type="button"
+          className="om-nav-burger"
+          aria-label={open ? "Close menu" : "Open menu"}
+          aria-expanded={open}
+          onClick={() => setOpen((v) => !v)}
+        >
+          {open ? "✕" : "☰"}
+        </button>
       </div>
+      {open && (
+        <nav className="om-nav-mobile">
+          {links.map((l) => (
+            <a key={l.href} href={l.href} className="om-nav-link" onClick={close}>
+              {l.label}
+            </a>
+          ))}
+          <a href="#contact" className="om-nav-mobile-cta om-cta-pill" onClick={close}>
+            Request a Quote
+          </a>
+        </nav>
+      )}
     </header>
   );
 };

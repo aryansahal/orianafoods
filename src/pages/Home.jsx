@@ -496,6 +496,7 @@ const Home = () => {
               }}
             />
             <div
+              className="om-origin-photo"
               style={{
                 position: "relative",
                 height: 400,
@@ -770,7 +771,7 @@ const Home = () => {
 
           <form
             data-reveal
-            className="om-reveal"
+            className="om-reveal om-form-card"
             onSubmit={submitEnquiry}
             style={{
               background: "#fff",
