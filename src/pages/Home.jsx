@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from "react";
-import masalaClean from "../assets/images/masala-clean.png";
-import farmImg from "../assets/images/farm.jpg";
-import pHaldi from "../assets/images/p-haldi.png";
-import pJeera from "../assets/images/p-jeera.png";
-import pDhaniya from "../assets/images/p-dhaniya.png";
-import pChilli from "../assets/images/p-chilli.png";
+import masalaClean from "../assets/images/masala-clean.webp";
+import farmImg from "../assets/images/farm.webp";
+import pHaldi from "../assets/images/p-haldi.webp";
+import pJeera from "../assets/images/p-jeera.webp";
+import pDhaniya from "../assets/images/p-dhaniya.webp";
+import pChilli from "../assets/images/p-chilli.webp";
 
 const products = [
   {
@@ -256,6 +256,10 @@ const Home = () => {
             <img
               src={masalaClean}
               alt="Whole and ground Indian spices in a wooden bowl"
+              fetchpriority="high"
+              decoding="async"
+              width={1100}
+              height={1100}
               style={{
                 position: "relative",
                 zIndex: 1,
@@ -384,6 +388,8 @@ const Home = () => {
                 <img
                   src={p.img}
                   alt={p.name}
+                  loading="lazy"
+                  decoding="async"
                   style={{
                     width: "100%",
                     height: "100%",
@@ -508,6 +514,8 @@ const Home = () => {
               <img
                 src={farmImg}
                 alt="Spice farm at harvest"
+                loading="lazy"
+                decoding="async"
                 style={{
                   width: "100%",
                   height: "100%",
