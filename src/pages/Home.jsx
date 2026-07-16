@@ -264,6 +264,7 @@ const Home = () => {
                 position: "relative",
                 zIndex: 1,
                 width: "100%",
+                height: "auto",
                 borderRadius: 28,
                 boxShadow: "0 24px 60px rgba(43,35,24,0.18)",
                 display: "block",
